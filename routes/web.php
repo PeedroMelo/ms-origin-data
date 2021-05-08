@@ -19,4 +19,4 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/orders/a', 'OrderController@index');
+$router->get('/orders/{sample}', 'OrderController@index');

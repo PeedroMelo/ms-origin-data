@@ -11,11 +11,11 @@ class OrderController extends Controller
     private $orders;
     private $query;
 
-    public function index(Request $request)
+    public function index(Request $request, $sample)
     {
         $this->query = QueryParametersSerializer::serializeParams($request->fullUrl());
-        
-        $order = new OrderService();
+
+        $order = new OrderService($sample);
 
         return response(
             $order->getOrders($this->query),
